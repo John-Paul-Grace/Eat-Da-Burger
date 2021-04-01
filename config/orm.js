@@ -10,7 +10,7 @@ const orm = {
             cb(result);
         });
     },
-    insertOne(columns, data, tableInput, cb) {
+    insertOne(tableInput, columns, data, cb) {
         const queryString = "INSERT INTO ?? (??) VALUES (?)";
 
         connection.query(queryString, [tableInput, columns, data], (err, result) => {
@@ -19,7 +19,15 @@ const orm = {
             cb(result);
         });
     },
-    updateOne() {}
+    updateOne(tableInput, column, oldData, newData, cb) {
+        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+
+        connection.query(queryString, [tableInput, column, newData, column, oldData], (err, result) => {
+            if (err) throw err;
+
+            cb(result);
+        });
+    }
 };
 
 module.exports = orm;

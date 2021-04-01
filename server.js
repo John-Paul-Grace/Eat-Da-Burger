@@ -1,6 +1,6 @@
 const orm = require("./config/orm.js");
 
-orm.insertOne("burger_name", "Jucy Lucy", "burgers", (result) => {
+orm.updateOne("burgers", "burger_name", "Cheese Burger", "Jucy Lucy", (result) => {
     console.log(`${result.affectedRows} rows affected`);
 });
 
