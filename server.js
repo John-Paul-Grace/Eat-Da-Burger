@@ -1,9 +1,9 @@
-const orm = require("./config/orm.js");
+const burger = require("./models/burger.js");
 
-orm.updateOne("burgers", "burger_name", "Cheese Burger", "Jucy Lucy", (result) => {
-    console.log(`${result.affectedRows} rows affected`);
+burger.update("burger_name", "Cheese Burger", "Holy Chuck", (res) => {
+    console.log(`${res.affectedRows} rows affected`)
 });
 
-orm.selectAll("burgers", (result) => {
-    console.log(result);
+burger.all((res) => {
+    console.log(res);
 });

@@ -20,7 +20,7 @@ const orm = {
         });
     },
     updateOne(tableInput, column, oldData, newData, cb) {
-        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ? LIMIT 1";
 
         connection.query(queryString, [tableInput, column, newData, column, oldData], (err, result) => {
             if (err) throw err;
