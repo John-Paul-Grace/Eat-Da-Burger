@@ -10,7 +10,15 @@ const orm = {
             cb(result);
         });
     },
-    insertOne() {},
+    insertOne(columns, data, tableInput, cb) {
+        const queryString = "INSERT INTO ?? (??) VALUES (?)";
+
+        connection.query(queryString, [tableInput, columns, data], (err, result) => {
+            if (err) throw err;
+
+            cb(result);
+        });
+    },
     updateOne() {}
 };
 
