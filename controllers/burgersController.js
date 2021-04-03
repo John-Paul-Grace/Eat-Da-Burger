@@ -4,7 +4,15 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req,res) => {
-    res.send("IT WORKS!");
+    burger.all((data) => {
+        const hbsObject = {
+            burgers: data
+        }
+
+        console.log(hbsObject);
+
+        res.json(hbsObject);
+    });
 });
 
 router.post("", (req,res) => {
