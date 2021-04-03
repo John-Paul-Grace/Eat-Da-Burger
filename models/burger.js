@@ -5,12 +5,11 @@ const burger = {
   all(cb) {
     orm.selectAll('burgers', (res) => cb(res));
   },
-  // The variables cols and vals are arrays.
-  create(cols, vals, cb) {
-    orm.insertOne('burgers', cols, vals, (res) => cb(res));
+  create(name, cb) {
+    orm.insertOne('burgers', 'burger_name', name, (res) => cb(res));
   },
-  update(column, oldData, newData, cb) {
-    orm.updateOne('burgers', column, oldData, newData, (res) => cb(res));
+  update(id, col, data, cb) {
+    orm.updateOne('burgers', id, col, data, (res) => cb(res));
   }
 };
 
