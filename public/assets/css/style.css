@@ -18,16 +18,29 @@ h1 {
 }
 
 .undevoured {
-    background-color: green;
+    border: 1px solid black;
+    margin-bottom: 5px;
+    background-color: white;
+    padding: 5px;
+}
+
+.devour {
+    float: right;
 }
 
 .devoured-list {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    list-style-type: none;
 }
 
 .devoured {
-    background-color: red;
+    font-size: small;
+    color: grey;
+    border: 1px solid black;
+    margin-bottom: 1px;
+    background-color: white;
+    padding: 2px;
 }
 
 form {
