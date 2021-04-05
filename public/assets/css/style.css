@@ -1,0 +1,16 @@
+body {
+    background-color: orange;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.undevoured {
+    background-color: green;
+}
+
+.devoured {
+    background-color: red;
+}

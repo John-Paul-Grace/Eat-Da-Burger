@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
         console.log(hbsObject);
 
-        res.json(hbsObject);
+        res.render("index", hbsObject);
     });
 });
 
