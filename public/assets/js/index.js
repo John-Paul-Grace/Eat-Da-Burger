@@ -4,10 +4,6 @@ document.addEventListener('DOMContentLoaded', (readyEvent) => {
         console.info('DOM loaded');
     }
 
-    const devourBtns = document.querySelectorAll(".devour");
-
-    console.log(devourBtns);
-
     const submitBtn = document.querySelector("#burger-submit");
 
     submitBtn.addEventListener("click", (event) => {
@@ -40,5 +36,32 @@ document.addEventListener('DOMContentLoaded', (readyEvent) => {
         else {
             alert("Please input a name.");
         }
+    });
+
+    const devourBtns = document.querySelectorAll(".devour");
+
+    devourBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            const id = event.target.getAttribute("data-id");
+
+            console.log("id = " + id);
+
+            const bodyObj = {
+                col: "devoured",
+                data: true
+            };
+
+            fetch(`/api/update/${id}`, {
+                method: "PUT",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(bodyObj)
+            }).then(() => {
+                console.log("Updated!");
+                location.reload();
+            });
+        });
     });
 });

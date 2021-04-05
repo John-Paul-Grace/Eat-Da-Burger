@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 router.post("/api/add", (req, res) => {
     burger.create(req.body.name, (result) => {
-        console.log(`${result.changedRows} rows changed`);
+        console.log(`${result.affectedRows} rows affected`);
         res.json(result);
     });
 });
