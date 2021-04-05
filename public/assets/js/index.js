@@ -18,12 +18,27 @@ document.addEventListener('DOMContentLoaded', (readyEvent) => {
         const input = inputArea.value.trim();
 
         if (input) {
-            console.log(input);
+
+            const inputObj = {
+                name: input
+            }
+
+            fetch("/api/add", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(inputObj)
+            }).then(() => {
+                inputArea.value = "";
+
+                console.log("Posted!");
+                location.reload();
+            });
         }
         else {
             alert("Please input a name.");
         }
-
-        inputArea.value = "";
     });
 });
