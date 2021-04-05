@@ -1,6 +1,6 @@
 <h1>Eat-Da-Burger!</h1>
 
-<ul>
+<ul class="undevoured-list">
     {{#each burgers}}
     {{#unless devoured}}
         {{> burger-block devourClass = "undevoured"}}
@@ -8,10 +8,16 @@
     {{/each}}
 </ul>
 
-<ul>
+<ul class="devoured-list">
     {{#each burgers}}
     {{#if devoured}}
         {{> burger-block devourClass = "devoured"}}
     {{/if}}
     {{/each}}
 </ul>
+
+<form>
+    <textarea class="text-input"></textarea>
+    <input type="submit">
+    <label for="text-input">Enter a burger you want to eat and click the "Submit" button</label>
+</form>

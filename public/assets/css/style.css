@@ -1,16 +1,47 @@
 body {
     background-color: orange;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
 }
 
 h1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
     color: red;
     text-align: center;
+}
+
+.undevoured-list {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
 }
 
 .undevoured {
     background-color: green;
 }
 
+.devoured-list {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
 .devoured {
     background-color: red;
+}
+
+form {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea {
+    width: 400px;
+}
+
+input {
+    width: fit-content;
 }
